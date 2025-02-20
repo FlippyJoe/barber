@@ -1,0 +1,593 @@
+:root {
+  --header_color: rgba(32, 28, 28, 0.7);
+  --navbar_color: rgb(50, 44, 44, 0.7);
+  --sidebar_color: rgba(19, 19, 19, 0.895);
+  --main_color: rgb(84, 69, 74);
+  --accent_color: rgb(5, 54, 83);
+  --nav_bar_text: rgb(239, 199, 19);
+  --mobile-header-color: rgba(5, 2, 12, 0.9);
+  --box-color: rgb(247, 219, 129);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* animation */
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+.sectionThree,
+.sectionFour,
+.featuresSection,
+.sectionFive {
+  -webkit-animation: appear linear;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+
+.location-section {
+  -webkit-animation: appear linear;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+/* Nav bar */
+
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 999;
+  background-color: var(--header_color);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.link {
+  color: var(--nav_bar_text);
+}
+
+.links-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* It shouldn`t be here at all, I did only to force the links to the right in the sidebar. Otherwise everything is on the left. This also results at separating the open- and close buttons. */
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--nav_bar_text);
+  transition: 0.5s ease-in-out;
+  font-size: clamp(1rem, 2vw, 2.5rem);
+}
+
+@media (min-width: 1000px) {
+  nav a:hover {
+    color: white;
+  }
+}
+
+nav svg {
+  fill: var(--nav_bar_text);
+}
+
+.open-sidebar-btn,
+#sidebar-active {
+  display: none;
+}
+
+/* Main */
+
+main {
+  height: 100vh;
+}
+/* Section One */
+.sectionOne {
+  height: 100%;
+  width: 100%;
+  background-image: url(./tools_bgp_dark.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.main-text {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.brandName {
+  color: var(--nav_bar_text);
+  font-size: clamp(2.5rem, 2.5vw, 4rem);
+}
+
+.best_barber {
+  color: var(--nav_bar_text);
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: clamp(2rem, 2vw, 3rem);
+}
+.intro {
+  color: var(--nav_bar_text);
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  z-index: 10;
+  padding: 10px;
+  display: inline-block;
+  width: 80%;
+}
+
+.social-main a {
+  text-decoration: none;
+  color: var(--nav_bar_text);
+  padding: 15px;
+  position: relative;
+}
+
+#social-link {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  border: 2px solid var(--nav_bar_text);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding-top: 15px;
+  box-shadow: 1px 1px 10px var(--nav_bar_text) inset;
+  transition: 0.4s ease-in-out;
+}
+.social-main #social-link:hover {
+  color: var(--accent_color);
+  background: linear-gradient(45deg, yellow, rgb(151, 114, 22));
+}
+
+.social-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Section One BREAKPOINTS */
+@media (max-width: 950px) {
+  .main-text {
+    margin-top: 50%;
+  }
+}
+
+/* Section 2 */
+
+.featuresSection {
+  background-image: url(./table_3-867x1300.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: grid;
+  grid-template-areas: "first second third";
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  min-height: 150%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.first {
+  grid-area: first;
+}
+
+.second {
+  grid-area: second;
+}
+
+.third {
+  grid-area: third;
+}
+
+.featuresSection > * {
+  color: var(--nav_bar_text);
+  border: 1px solid var(--nav_bar_text);
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 1px 1px 20px var(--nav_bar_text) inset;
+  min-height: 50%;
+  max-height: 65%;
+  min-width: 25%;
+  max-width: 55%;
+  background-color: rgba(66, 59, 59, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.featuresSection h4 {
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  padding-top: 25px;
+  text-align: center;
+}
+
+.featuresSection img {
+  width: clamp(40px, 3.5vw, 50px);
+  color: var(--nav_bar_text);
+  padding-top: 30px;
+}
+
+/* Section Two BREAKPOINTS */
+
+@media (max-width: 800px) {
+  .featuresSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+}
+
+/* Section Three, Services */
+
+.sectionThree {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-image: url(./comb_2-867x1300.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: whitesmoke;
+}
+
+#services-header {
+  background-color: rgba(75, 150, 225, 0.4);
+  border-radius: 15px;
+  padding: 5px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  font-size: clamp(28px, 2.5vw, 32px);
+}
+
+.services {
+  margin-bottom: 15px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 950px) {
+  .services {
+    display: flex;
+    flex-direction: column;
+  }
+  .sectionThree {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
+.service-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid whitesmoke;
+  min-width: 25%;
+  max-width: 55%;
+  height: 100%;
+  border-radius: 15px;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(9, 90, 157, 0.465);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+/* Contact section */
+
+.sectionFour {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./contactBckg.webp);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: whitesmoke;
+  text-shadow: -1px 1px 1px black;
+  font-size: clamp(28px, 2.5vw, 32px);
+}
+
+.contact-links {
+  display: grid;
+  grid-template-areas: "email call whats";
+  height: clamp(35%, 40%, 50%);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(225, 135, 75, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.contactHeader {
+  background-color: rgba(75, 150, 225, 0.4);
+  border-radius: 15px;
+  padding: 5px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.email {
+  grid-area: email;
+}
+
+.call {
+  grid-area: call;
+}
+
+.whats {
+  grid-area: whats;
+}
+
+.contact h2 {
+  color: var(--nav_bar_text);
+  margin-top: 35px;
+  text-align: center;
+  font-size: clamp(2rem, 2.5vw, 1rem);
+}
+
+.contact-links button {
+  background-color: var(--accent_color);
+  color: aqua;
+  width: 150px;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 15px;
+  border: none;
+  box-shadow: inset 2px 2px 10px rgb(137, 125, 125);
+  transition: 0.5s ease-in-out;
+}
+
+.contact-links button:hover {
+  cursor: pointer;
+  background-color: var(--nav_bar_text);
+  color: var(--main_color);
+  font-weight: 700;
+}
+
+.email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  flex-direction: column;
+}
+.email img {
+  width: 35px;
+  margin-bottom: 5px;
+}
+
+.call {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  flex-direction: column;
+}
+.call img {
+  width: 35px;
+  margin-bottom: 5px;
+}
+
+.whats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whats a {
+  color: rgb(52, 234, 52);
+  font-size: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: 0.5s ease-in-out;
+}
+
+.whats a:hover {
+  color: #ffff;
+  background-color: green;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/* Contact page BREAKPOINTS */
+@media (max-width: 800px) {
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Location */
+
+.sectionFive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  max-height: 120vh;
+  width: 100%;
+  background-color: rgba(109, 88, 61, 0.724);
+  color: rgb(245, 245, 245);
+}
+
+.sectionFive h2 {
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  margin-top: 25px;
+}
+
+.sectionFive h3 {
+  text-align: center;
+}
+
+.address h3 {
+  margin-top: 5px;
+}
+
+.location-container {
+  width: 100%;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.map iframe {
+  width: 55%;
+  height: 100%;
+  border-radius: 15px;
+}
+.map {
+  width: 100%;
+}
+
+footer {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  background-color: rgba(109, 88, 61, 0.724);
+}
+
+footer a {
+  text-decoration: none;
+  color: #000000;
+  transition: 0.2s;
+}
+
+footer a:hover {
+  color: rgb(245, 245, 245);
+}
+
+@media (max-width: 950px) {
+  .links-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* This puts the links back to top position. Otherwise they drop to the bottom. */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    background-color: var(--sidebar_color);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    box-shadow: inset 0px 5px 15px 5px rgba(234, 230, 230, 0.25);
+    transition: 0.75s ease-out;
+  }
+  nav a {
+    box-sizing: border-box;
+    height: auto;
+    padding: 20px 30px;
+    justify-content: flex-start;
+  }
+  .open-sidebar-btn,
+  .closed-sidebar-btn {
+    padding: 20px;
+    display: block;
+  }
+
+  #sidebar-active:checked ~ .links-container {
+    display: flex;
+    right: 0;
+  }
+  #sidebar-active:checked ~ #overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+  }
+
+  nav {
+    background-color: var(--mobile-header-color);
+  }
+  .name {
+    margin-right: auto;
+    font-size: large;
+  }
+  .brandName {
+    margin-top: -50%;
+    font-size: larger;
+  }
+}
